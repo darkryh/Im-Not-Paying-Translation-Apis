@@ -106,12 +106,14 @@ implementation("io.github.darkryh.translator:translator-desktop:$imNotPayingTran
 ```kotlin
 runBlocking {
     val translator = Translator(AndroidDriver(context))
-    translator.init(Language.Spanish, Language.English)
+    translator.init(Language.English, Language.Japanese)
 
-    val translatedText: String = translator.translate("Hola se espera un resultado en Ingles")
+    val translatedText: String = translator.translate("Hi this is expected to be Japanese")
     println(translatedText)
 
-    translator.release()
+    disposableSituation {
+      translator.release()
+    }
 }
 ```
 
