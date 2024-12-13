@@ -55,13 +55,6 @@ dependencies {
     implementation(project(":Translator-Core"))
 }
 
-signing {
-    afterEvaluate {
-        useGpgCmd()
-        sign(publishing.publications["release"])
-    }
-}
-
 publishing {
     repositories {
         maven {
@@ -108,5 +101,12 @@ publishing {
                 }
             }
         }
+    }
+}
+
+signing {
+    afterEvaluate {
+        useGpgCmd()
+        sign(publishing.publications["release"])
     }
 }

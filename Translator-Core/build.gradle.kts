@@ -29,13 +29,6 @@ dependencies {
     api(libs.kotlinx.coroutines.core)
 }
 
-signing {
-    afterEvaluate {
-        useGpgCmd()
-        sign(publishing.publications["release"])
-    }
-}
-
 publishing {
     repositories {
         maven {
@@ -80,5 +73,12 @@ publishing {
                 }
             }
         }
+    }
+}
+
+signing {
+    afterEvaluate {
+        useGpgCmd()
+        sign(publishing.publications["release"])
     }
 }
