@@ -14,8 +14,6 @@
 
 ---
 
----
-
 ## Supported Languages
 
 **Im Not Paying Translation APIs** supports a wide range of languages for translation. Below is the complete list of supported languages:
@@ -120,6 +118,7 @@ runBlocking {
 ## Usage
 
 ### Desktop Example
+[Compose Example](https://github.com/darkryh/Im-Not-Paying-Translation-Apis/blob/master/desktopApp/src/main/java/com/ead/lib/imnotpayingtranslationapis/desktopapp/Main.kt)
 ```kotlin
 runBlocking {
     val driver = DesktopDriver()
