@@ -76,18 +76,18 @@
 ---
 
 ## Getting Started
-```kotlin
-repositories {
-  mavenCentral()
-  maven("https://jogamp.org/deployment/maven") // required in desktop
-}
-```
 
 ### Installation
 
 Add the following dependencies to your `build.gradle.kts` file:
 
 ### Repository Setup
+```kotlin
+repositories {
+  mavenCentral()
+  maven("https://jogamp.org/deployment/maven") // required in desktop
+}
+```
 
 #### Core Module
 ```kotlin
