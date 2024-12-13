@@ -9,6 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven("https://jogamp.org/deployment/maven")
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jogamp.org/deployment/maven")
     }
 }
 
@@ -23,4 +25,5 @@ rootProject.name = "Im Not Paying Translation Apis"
 include(":app")
 include(":Translator-Core")
 include(":Translator-Android")
-include(":Translator-Kotlin")
+include(":Translator-Desktop")
+include(":desktopApp")
