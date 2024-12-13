@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
+    <bytecodeTargetLevel target="17">
       <module name="Im_Not_Paying_Translation_Apis.Android" target="21" />
+      <module name="Im_Not_Paying_Translation_Apis.Translator-Kotlin-Desktop" target="17" />
+      <module name="Im_Not_Paying_Translation_Apis.Translator-Kotlin-Desktop.main" target="17" />
+      <module name="Im_Not_Paying_Translation_Apis.Translator-Kotlin-Desktop.test" target="17" />
+      <module name="Im_Not_Paying_Translation_Apis.Translator-Kotlin.main" target="17" />
+      <module name="Im_Not_Paying_Translation_Apis.Translator-Kotlin.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
