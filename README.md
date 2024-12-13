@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.darkryh.translator/translator-core.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.darkryh.translator/translator-core)
+
 # Im Not Paying Translation APIs
 
 **Im Not Paying Translation APIs** is a Kotlin-based library that provides a platform-independent way to translate text using drivers that adapt to various platforms such as Android and Desktop. This library is designed for developers who need an easy and flexible solution for translating text without paying for translation APIs.
