@@ -77,10 +77,11 @@ val translator = Translator(driver)
     translator.init(Language.Spanish, Language.English)
     val translatedText = translator.translate("Hola")
     println(translatedText)
-
+    
+}
+disposableSituation {
     translator.release()
 }
-translator.release()
 ```
 
 ---
