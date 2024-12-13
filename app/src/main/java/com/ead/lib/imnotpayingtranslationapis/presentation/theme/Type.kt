@@ -1,4 +1,4 @@
-package com.ead.lib.imnotpayingtranslationapis.ui.theme
+package com.ead.lib.imnotpayingtranslationapis.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

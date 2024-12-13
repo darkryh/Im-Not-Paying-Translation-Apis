@@ -1,6 +1,5 @@
-package com.ead.lib.imnotpayingtranslationapis.ui.theme
+package com.ead.lib.imnotpayingtranslationapis.presentation.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
