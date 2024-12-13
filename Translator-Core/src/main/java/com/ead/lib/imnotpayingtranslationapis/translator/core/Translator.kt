@@ -43,7 +43,7 @@ class Translator(
         from : Language? = null,
         to: Language? = null
     ) : String {
-        if (from == to) throw IllegalArgumentException("From and To languages can't be the same")
+        if (from == to && from != null) throw IllegalArgumentException("From and To languages can't be the same")
         return driver
             .translate(
                 text,
