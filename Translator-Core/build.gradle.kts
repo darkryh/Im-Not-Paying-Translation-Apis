@@ -7,8 +7,7 @@ val javaVirtualMachineTarget = JvmTarget.fromTarget(javaStringVersion)
 
 plugins {
     id("java-library")
-    id("maven-publish")
-    id("signing")
+    id("com.vanniktech.maven.publish") version "0.30.0"
     alias(libs.plugins.jetbrains.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
 }
@@ -29,56 +28,35 @@ dependencies {
     api(libs.kotlinx.coroutines.core)
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("OSSRH_USERNAME") ?: "placeholder"
-                password = System.getenv("OSSRH_PASSWORD") ?: "placeholder"
+mavenPublishing {
+    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.DEFAULT)
+
+    coordinates("io.github.darkryh.translator", "translator-core", imNotPayingTranslationApisVersion)
+
+    pom {
+        name.set("Translator Core")
+        description.set("Core abstraction for translator")
+        url.set("https://github.com/darkryh/Im-Not-Paying-Translation-Apis")
+
+        licenses {
+            license {
+                name.set("Apache License 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0")
             }
+        }
+        developers {
+            developer {
+                id.set("darkryh")
+                name.set("Xavier Alexander Torres Calderón")
+                email.set("alex_torres-xc@hotmail.com")
+            }
+        }
+        scm {
+            connection.set("scm:git:git://github.com/darkryh/Im-Not-Paying-Translation-Apis.git")
+            developerConnection.set("scm:git:ssh://github.com/darkryh/Im-Not-Paying-Translation-Apis.git")
+            url.set("https://github.com/darkryh/Im-Not-Paying-Translation-Apis")
         }
     }
 
-    publications {
-        register<MavenPublication>("release") {
-            from(components["java"])
-
-            groupId = "io.github.darkryh.translator"
-            artifactId = "translator-core"
-            version = imNotPayingTranslationApisVersion
-
-            pom {
-                name.set(project.name)
-                description.set("Core abstraction for translator")
-                url.set("https://github.com/darkryh/Im-Not-Paying-Translation-Apis")
-                licenses {
-                    license {
-                        name.set("Apache License 2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("darkryh")
-                        name.set("Xavier Alexander Torres Calderón")
-                        email.set("alex_torres-xc@hotmail.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/darkryh/Im-Not-Paying-Translation-Apis.git")
-                    developerConnection.set("scm:git:ssh://github.com/darkryh/Im-Not-Paying-Translation-Apis.git")
-                    url.set("https://github.com/darkryh/Im-Not-Paying-Translation-Apis")
-                }
-            }
-        }
-    }
-}
-
-signing {
-    afterEvaluate {
-        useGpgCmd()
-        sign(publishing.publications["release"])
-    }
+    signAllPublications()
 }
