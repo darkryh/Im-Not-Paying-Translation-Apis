@@ -84,14 +84,13 @@ fun translationScript(text: String) = """
     
         const result = await waitForResult();
     
-        // Envía el resultado a Kotlin a través de CefMessageRouter
         window.cefQuery({
             request: JSON.stringify(result),
             onSuccess: function(response) {
-                console.log("Mensaje enviado a Kotlin:", response);
+                console.log("Sent message a Kotlin:", response);
             },
             onFailure: function(error_code, error_message) {
-                console.log("Error al enviar mensaje a Kotlin:", error_code, error_message);
+                console.log("Error message a Kotlin:", error_code, error_message);
             }
         });
     
