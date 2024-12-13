@@ -1,3 +1,12 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+val imNotPayingTranslationApisVersion: String by project
+val javaStringVersion: String by project
+val javaVersion = JavaVersion.toVersion(javaStringVersion)
+val javaVirtualMachineTarget = JvmTarget.fromTarget(javaStringVersion)
+val compileProjectSdkVersion : String by project
+val projectSdkMinVersion : String by project
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,14 +15,14 @@ plugins {
 
 android {
     namespace = "com.ead.lib.imnotpayingtranslationapis"
-    compileSdk = 34
+    compileSdk = compileProjectSdkVersion.toInt()
 
     defaultConfig {
         applicationId = "com.ead.lib.imnotpayingtranslationapis"
-        minSdk = 21
-        targetSdk = 34
+        minSdk = projectSdkMinVersion.toInt()
+        targetSdk = compileProjectSdkVersion.toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = imNotPayingTranslationApisVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,11 +37,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = javaStringVersion
     }
     buildFeatures {
         compose = true
@@ -42,9 +51,11 @@ android {
 dependencies {
 
     implementation(project(":Translator-Core"))
+    implementation(project(":Translator-Android"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

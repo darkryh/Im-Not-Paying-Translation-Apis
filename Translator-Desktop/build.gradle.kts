@@ -10,7 +10,6 @@ plugins {
     id("maven-publish")
     id("signing")
     alias(libs.plugins.jetbrains.kotlin.jvm)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 java {
@@ -25,8 +24,8 @@ kotlin {
 }
 
 dependencies {
-    api(libs.serializer)
-    api(libs.kotlinx.coroutines.core)
+    implementation(project(":Translator-Core"))
+    api(libs.kcef)
 }
 
 signing {
@@ -53,12 +52,12 @@ publishing {
             from(components["java"])
 
             groupId = "io.github.darkryh.translator"
-            artifactId = "translator-core"
+            artifactId = "translator-desktop"
             version = imNotPayingTranslationApisVersion
 
             pom {
                 name.set(project.name)
-                description.set("Core abstraction for translator")
+                description.set("Driver implementation for desktop")
                 url.set("https://github.com/darkryh/Im-Not-Paying-Translation-Apis")
                 licenses {
                     license {
