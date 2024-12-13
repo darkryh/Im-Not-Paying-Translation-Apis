@@ -118,7 +118,7 @@ runBlocking {
 ## Usage
 
 ### Desktop Example
-[Compose Example](https://github.com/darkryh/Im-Not-Paying-Translation-Apis/blob/master/desktopApp/src/main/java/com/ead/lib/imnotpayingtranslationapis/desktopapp/Main.kt)
+Example in [Compose](https://github.com/darkryh/Im-Not-Paying-Translation-Apis/blob/master/desktopApp/src/main/java/com/ead/lib/imnotpayingtranslationapis/desktopapp/Main.kt)
 ```kotlin
 runBlocking {
     val driver = DesktopDriver()
