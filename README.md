@@ -104,13 +104,15 @@ implementation("io.github.darkryh.translator:translator-desktop:$imNotPayingTran
 
 ### Android Example
 ```kotlin
-val translator = Translator(AndroidDriver(context))
-translator.init(Language.Spanish, Language.English)
+runBlocking {
+    val translator = Translator(AndroidDriver(context))
+    translator.init(Language.Spanish, Language.English)
 
-val translatedText = translator.translate("Hola")
-println(translatedText)
+    val translatedText: String = translator.translate("Hola se espera un resultado en Ingles")
+    println(translatedText)
 
-translator.release()
+    translator.release()
+}
 ```
 
 ## Usage
@@ -118,16 +120,16 @@ translator.release()
 ### Desktop Example
 ```kotlin
 runBlocking {
-val driver = DesktopDriver()
-val translator = Translator(driver)
-    
-    translator.init(Language.Spanish, Language.English)
-    val translatedText = translator.translate("Hola")
+    val driver = DesktopDriver()
+    val translator = Translator(driver)
+
+    translator.init(Language.English, Language.Spanish)
+    val translatedText: String = translator.translate("Hi this is expected to be Spanish")
     println(translatedText)
-    
-}
-disposableSituation {
-    translator.release()
+
+    disposableSituation {
+        translator.release()
+    }
 }
 ```
 
