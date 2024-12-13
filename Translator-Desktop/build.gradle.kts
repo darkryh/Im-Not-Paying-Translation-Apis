@@ -30,7 +30,7 @@ dependencies {
 
 // Configure the Maven Publish Plugin
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.DEFAULT)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
     coordinates("io.github.darkryh.translator", "translator-desktop", imNotPayingTranslationApisVersion)
 

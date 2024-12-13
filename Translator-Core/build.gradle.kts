@@ -29,7 +29,7 @@ dependencies {
 }
 
 mavenPublishing {
-    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.DEFAULT)
+    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.CENTRAL_PORTAL)
 
     coordinates("io.github.darkryh.translator", "translator-core", imNotPayingTranslationApisVersion)
 
