@@ -17,6 +17,8 @@ import com.ead.lib.imnotpayingtranslationapis.translator.core.models.Driver
 import com.ead.lib.imnotpayingtranslationapis.translator.core.models.GenderResponse
 import com.ead.lib.imnotpayingtranslationapis.translator.core.models.Response
 import com.ead.lib.imnotpayingtranslationapis.translator.core.scripts.INITIALIZATION_SCRIPT
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.serialization.json.Json
 import kotlin.coroutines.resume
@@ -68,7 +70,14 @@ class AndroidDriver(
      * The driver view to use
      * translation process in android
      */
-    val _driverView: DriverView by lazy { letOnUi { DriverView(context) } }
+    val _driverView: DriverView by lazy {
+        letOnUi {
+            runBlocking {
+                delay(300)
+                DriverView(context)
+            }
+        }
+    }
 
     /**
      * The javascript bridge to use
