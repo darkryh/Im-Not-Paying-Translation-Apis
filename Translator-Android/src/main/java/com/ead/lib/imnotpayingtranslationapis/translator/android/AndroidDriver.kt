@@ -72,9 +72,11 @@ class AndroidDriver(
      */
     val _driverView: DriverView by lazy {
         letOnUi {
-            runBlocking {
-                delay(300)
-                DriverView(context)
+            DriverView(context).let { instance ->
+                runBlocking {
+                    delay(300)
+                    instance
+                }
             }
         }
     }
